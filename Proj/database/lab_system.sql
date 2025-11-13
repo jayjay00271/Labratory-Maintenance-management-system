@@ -1,0 +1,155 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 13, 2025 at 11:10 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `lab_system`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lab_equipment`
+--
+
+CREATE TABLE `lab_equipment` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `status` enum('Working','Needs Repair','Out of Service') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lab_equipment`
+--
+
+INSERT INTO `lab_equipment` (`id`, `name`, `type`, `status`, `created_at`) VALUES
+(15, 'we', 'we', 'Working', '2025-11-13 07:09:44'),
+(16, 'we', 'we', 'Working', '2025-11-13 07:09:49'),
+(17, 'we', 'we', 'Needs Repair', '2025-11-13 07:09:52'),
+(18, 'we', 'we', 'Working', '2025-11-13 07:17:56'),
+(19, 'we', 'we', 'Working', '2025-11-13 07:17:58'),
+(20, 'we', 'we', 'Working', '2025-11-13 07:18:05'),
+(21, 'we', 'we', 'Working', '2025-11-13 07:18:11'),
+(22, 'we', 'we', 'Working', '2025-11-13 07:20:00'),
+(23, 'we', 'we', 'Working', '2025-11-13 07:21:07'),
+(24, 'we', 'we', 'Working', '2025-11-13 07:21:13'),
+(25, 'we', 'we', 'Working', '2025-11-13 07:21:53'),
+(26, 'we', 'we', 'Working', '2025-11-13 07:22:14'),
+(27, 'we', 'we', 'Working', '2025-11-13 07:22:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance_requests`
+--
+
+CREATE TABLE `maintenance_requests` (
+  `id` int(11) NOT NULL,
+  `staff_name` varchar(100) NOT NULL,
+  `equipment_name` varchar(100) NOT NULL,
+  `issue_description` text NOT NULL,
+  `status` enum('Pending','In Progress','Resolved') DEFAULT 'Pending',
+  `request_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `maintenance_requests`
+--
+
+INSERT INTO `maintenance_requests` (`id`, `staff_name`, `equipment_name`, `issue_description`, `status`, `request_date`) VALUES
+(1, 'we', 'we', 'we', 'In Progress', '2025-11-13 06:15:37'),
+(6, 'admin', 'we', 'we', 'In Progress', '2025-11-13 06:19:50'),
+(9, '', '', '', 'In Progress', '2025-11-13 06:41:22'),
+(10, '', '', '', 'In Progress', '2025-11-13 06:41:25'),
+(11, 'admin', 'we', 'we', 'Pending', '2025-11-13 06:41:32'),
+(12, 'admin', 'we', 'we', 'In Progress', '2025-11-13 06:41:35'),
+(13, 'admin', 'we', 'we', 'Resolved', '2025-11-13 06:41:44'),
+(14, 'admin', 'we', 'we', 'In Progress', '2025-11-13 06:41:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','staff') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+(1, 'admin', '123', 'admin'),
+(2, 'staff', '123', 'staff');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `lab_equipment`
+--
+ALTER TABLE `lab_equipment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `maintenance_requests`
+--
+ALTER TABLE `maintenance_requests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `lab_equipment`
+--
+ALTER TABLE `lab_equipment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `maintenance_requests`
+--
+ALTER TABLE `maintenance_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
