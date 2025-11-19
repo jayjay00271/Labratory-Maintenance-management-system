@@ -1,0 +1,264 @@
+/* ===========================
+   BACKGROUND IMAGE + OVERLAY
+   =========================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+
+    /* Background picture */
+    background: url('lcbuild.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Dark overlay over background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1; /* behind everything */
+}
+
+/* ===========================
+   MAIN CONTAINER (Glass Card)
+   =========================== */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    width: 850px;
+    background: rgba(255, 255, 255, 0.82); /* Semi-glass */
+    backdrop-filter: blur(20px);
+    padding: 30px 25px;
+    border-radius: 20px;
+
+    /* Shadow for floating effect */
+    box-shadow: 0 10px 40px rgba(4, 50, 233, 0.35);
+
+    color: #222;
+    text-align: center;
+}
+
+
+h2, h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    margin-top:-30px ;
+}
+
+hr {
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   SUCCESS + ERROR MESSAGES
+   =========================== */
+.success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ===========================
+   FORM INPUT STYLING
+   =========================== */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+select {
+    width: 97%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+button {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    background: #0099ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #007acc;
+}
+
+/* ===========================
+   SEARCH BAR
+   =========================== */
+.search-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.search-box input[type="text"] {
+    padding: 6px 10px;
+    width: 130px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transform: translate(-1px, 20px);
+}
+
+.search-box button {
+    padding: 7px 12px;
+    border-radius: 6px;
+    background: #00bfff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    transform: translate(-1px, 13px);
+}
+
+.search-box button:hover {
+    filter: brightness(0.9);
+}
+
+.clear-btn {
+    padding: 7px 12px;
+    background: #ff5252;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transform: translate(-1px, 41px);
+}
+
+.clear-btn:hover {
+    background: #e04343;
+}
+
+/* ===========================
+   TABLE STYLING (WHITE TABLE)
+   =========================== */
+.full-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #ffffff; /* FULL WHITE TABLE */
+    font-size: 0.85rem;
+}
+
+.full-table th {
+    background: #0099ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.full-table td {
+    background: #ffffff; /* WHITE ROWS */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Light grey border for cleaner look */
+}
+
+.full-table tr:nth-child(even) td {
+    background: #f9f9f9; /* Very light gray for alternating rows */
+}
+
+/* Buttons inside table */
+.edit-btn, .delete-btn {
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background: #4caf50;
+}
+
+.edit-btn:hover {
+   background: #2f7831;
+
+}
+
+.delete-btn {
+    background: #c61212;
+}
+
+.delete-btn:hover {
+    background: #7b2525;
+}
+
+
+/* ===========================
+   PAGINATION
+   =========================== */
+.pagination {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    margin: 0 3px;
+    background: #e0e0e0;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background: #b5b5b5;
+}
+
+.active-page {
+    background: #0099ff !important;
+    color: white !important;
+}
+
+/* ===========================
+   RETURN BUTTON
+   =========================== */
+.return-btn {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.return-btn a {
+    text-decoration: none;
+    background: #666;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.return-btn a:hover {
+    background: #4a4a4a;
+}
