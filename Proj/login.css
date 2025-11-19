@@ -1,0 +1,224 @@
+/* -------------------------
+   1. Body & Background
+--------------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(45deg, #007bff, #00d4ff, #ffffff, #007bff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* -------------------------
+   2. Background Video & Overlay
+--------------------------- */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.1) blur(2px);
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 70, 140, 0.35);
+    z-index: -2;
+}
+
+/* -------------------------
+   3. Login Container
+--------------------------- */
+.login-container {
+    width: 600px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 50px 40px;
+    animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   4. Logo & System Title
+--------------------------- */
+.logo {
+    width: 120px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    filter: drop-shadow(0 3px 8px rgba(0, 123, 255, 0.4));
+}
+
+.system-title {
+    font-size: 23px;
+    font-weight: 600;
+    color: #00c8ff;
+    text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* -------------------------
+   5. Input Fields & Icons
+--------------------------- */
+.input-group {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 18px 14px 48px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #00c8ff;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.5);
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* -------------------------
+   6. Checkbox & Forgot Link
+--------------------------- */
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.checkbox-group input {
+    margin-right: 6px;
+}
+
+.forgot-link {
+    color: #00c8ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #ffffff;
+}
+
+/* -------------------------
+   7. Submit Button
+--------------------------- */
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 200, 255, 0.4);
+}
+
+/* -------------------------
+   8. Message Box (Errors / Notifications)
+--------------------------- */
+.message {
+    color: #ff6b6b;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 80, 80, 0.3);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+/* -------------------------
+   9. Shake Animation (Optional)
+--------------------------- */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* -------------------------
+   10. Responsive Design
+--------------------------- */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 35px 25px;
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 12px 15px 12px 45px;
+    }
+
+    .system-title {
+        font-size: 14px;
+    }
+}
+
